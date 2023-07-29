@@ -5,6 +5,8 @@ commonmark==0.9.1
 docutils==0.18.1
 future==0.18.2
 greenlet==1.1.2
+grpcio==1.56.2
+grpcio-tools==1.56.2
 idna==3.3
 importlib-metadata==4.11.4
 keyring==23.5.1
