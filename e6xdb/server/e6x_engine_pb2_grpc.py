@@ -144,6 +144,16 @@ class QueryEngineServiceStub(object):
                 request_serializer=e6x__engine__pb2.GetCatalogesRequest.SerializeToString,
                 response_deserializer=e6x__engine__pb2.GetCatalogesResponse.FromString,
                 )
+        self.getNextRemoteCachedChunk = channel.unary_unary(
+                '/QueryEngineService/getNextRemoteCachedChunk',
+                request_serializer=e6x__engine__pb2.RemoteChunkRequest.SerializeToString,
+                response_deserializer=e6x__engine__pb2.RemoteChunkResponse.FromString,
+                )
+        self.refreshCatalogs = channel.unary_unary(
+                '/QueryEngineService/refreshCatalogs',
+                request_serializer=e6x__engine__pb2.RefreshCatalogsRequest.SerializeToString,
+                response_deserializer=e6x__engine__pb2.RefreshCatalogsResponse.FromString,
+                )
 
 
 class QueryEngineServiceServicer(object):
@@ -306,6 +316,18 @@ class QueryEngineServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def getNextRemoteCachedChunk(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def refreshCatalogs(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_QueryEngineServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -438,6 +460,16 @@ def add_QueryEngineServiceServicer_to_server(servicer, server):
                     servicer.getCataloges,
                     request_deserializer=e6x__engine__pb2.GetCatalogesRequest.FromString,
                     response_serializer=e6x__engine__pb2.GetCatalogesResponse.SerializeToString,
+            ),
+            'getNextRemoteCachedChunk': grpc.unary_unary_rpc_method_handler(
+                    servicer.getNextRemoteCachedChunk,
+                    request_deserializer=e6x__engine__pb2.RemoteChunkRequest.FromString,
+                    response_serializer=e6x__engine__pb2.RemoteChunkResponse.SerializeToString,
+            ),
+            'refreshCatalogs': grpc.unary_unary_rpc_method_handler(
+                    servicer.refreshCatalogs,
+                    request_deserializer=e6x__engine__pb2.RefreshCatalogsRequest.FromString,
+                    response_serializer=e6x__engine__pb2.RefreshCatalogsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -888,5 +920,39 @@ class QueryEngineService(object):
         return grpc.experimental.unary_unary(request, target, '/QueryEngineService/getCataloges',
             e6x__engine__pb2.GetCatalogesRequest.SerializeToString,
             e6x__engine__pb2.GetCatalogesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getNextRemoteCachedChunk(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/QueryEngineService/getNextRemoteCachedChunk',
+            e6x__engine__pb2.RemoteChunkRequest.SerializeToString,
+            e6x__engine__pb2.RemoteChunkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def refreshCatalogs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/QueryEngineService/refreshCatalogs',
+            e6x__engine__pb2.RefreshCatalogsRequest.SerializeToString,
+            e6x__engine__pb2.RefreshCatalogsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -42,7 +42,6 @@ message ClearRequest{
 }
 
 message ClearResponse{
-  string engineIP = 1;
 }
 
 message CancelQueryRequest{
@@ -52,7 +51,6 @@ message CancelQueryRequest{
 }
 
 message CancelQueryResponse{
-  string engineIP = 2;
 }
 
 message ExplainRequest{
@@ -62,8 +60,7 @@ message ExplainRequest{
 }
 
 message ExplainResponse{
-  string engineIP = 1;
-  string explain = 2;
+  string explain = 1;
 }
 
 message DryRunRequest{
@@ -74,8 +71,7 @@ message DryRunRequest{
 }
 
 message DryRunResponse{
-  string engineIP = 1;
-  string dryrunValue = 2;
+  string dryrunValue = 1;
 }
 
 message DryRunRequestV2{
@@ -93,23 +89,20 @@ message ExplainAnalyzeRequest{
 }
 
 message ExplainAnalyzeResponse{
-  string engineIP = 1;
-  string explainAnalyze = 2;
+  string explainAnalyze = 1;
 }
 
 message PrepareStatementRequest{
-  string engineIP = 1;
-  string sessionId = 2;
-  string schema = 3;
-  string queryString = 4;
+  string sessionId = 1;
+  string schema = 2;
+  string queryString = 3;
 }
 
 message PrepareStatementV2Request{
-  string engineIP = 1;
-  string sessionId = 2;
-  string schema = 3;
-  string queryString = 4;
-  string catalog = 5;
+  string sessionId = 1;
+  string schema = 2;
+  string queryString = 3;
+  string catalog = 4;
 }
 message PrepareStatementResponse{
   string engineIP = 1;
@@ -136,7 +129,6 @@ message ExecuteStatementV2Request{
 }
 
 message ExecuteStatementResponse{
-  string engineIP = 1;
 }
 
 message GetNextResultRowRequest{
@@ -146,7 +138,6 @@ message GetNextResultRowRequest{
 }
 
 message GetNextResultRowResponse{
-  string engineIP = 1;
   bytes resultRow = 2;
 }
 
@@ -157,7 +148,6 @@ message GetNextResultBatchRequest{
 }
 
 message GetNextResultBatchResponse{
-  string engineIP = 1;
   bytes resultBatch = 2;
 }
 
@@ -168,8 +158,7 @@ message GetResultMetadataRequest{
 }
 
 message GetResultMetadataResponse{
-  string engineIP = 1;
-  bytes resultMetaData = 2;
+  bytes resultMetaData = 1;
 }
 
 message AuthenticateRequest{
@@ -232,7 +221,6 @@ message StatusRequest{
 
 message StatusResponse
 {
-  string engineIP = 1;
   bool status = 2;
   sint64 rowCount = 3;
 }
@@ -274,6 +262,23 @@ message GetCatalogesResponse{
   repeated CatalogResponse catalogResponses = 1;
 }
 
+message RefreshCatalogsRequest{
+  string sessionId = 1;
+}
+
+message RefreshCatalogsResponse{
+}
+
+message RemoteChunkRequest{
+  string originalQueryId = 1;
+  string remoteQueryId = 2;
+  string sQueryHash = 3;
+}
+
+message RemoteChunkResponse{
+  string error = 1;
+  bytes chunk = 2;
+}
 
 service QueryEngineService {
   rpc clear(ClearRequest) returns (ClearResponse);
@@ -327,4 +332,8 @@ service QueryEngineService {
   rpc getAddCatalogsResponse(GetAddCatalogsRequest) returns (GetAddCatalogsResponse);
 
   rpc getCataloges(GetCatalogesRequest) returns (GetCatalogesResponse);
+
+  rpc getNextRemoteCachedChunk(RemoteChunkRequest) returns (RemoteChunkResponse);
+
+  rpc refreshCatalogs(RefreshCatalogsRequest) returns (RefreshCatalogsResponse);
 }

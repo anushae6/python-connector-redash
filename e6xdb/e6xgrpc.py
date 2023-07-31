@@ -177,8 +177,8 @@ class Connection(object):
     def check_connection(self):
         return self._channel is not None
 
-    def clear(self, query_id):
-        clear_request = e6x_engine_pb2.ClearRequest(sessionId=self.get_session_id, queryId=query_id, engineIP="")
+    def clear(self, query_id, engine_ip=None):
+        clear_request = e6x_engine_pb2.ClearRequest(sessionId=self.get_session_id, queryId=query_id, engineIP=engine_ip)
         self._client.clear(clear_request)
         self._session_id = None
 
@@ -325,7 +325,7 @@ class Cursor(DBAPICursor):
 
     def clear(self):
         """Clears the tmp data"""
-        self.connection.clear(self._query_id)
+        self.connection.clear(query_id=self._query_id, engine_ip=self._engine_ip)
 
     def cancel(self, query_id):
         _logger.info("Cancelling query")
@@ -358,6 +358,7 @@ class Cursor(DBAPICursor):
 
         self._query_id = prepare_statement_response.queryId
         self._engine_ip = prepare_statement_response.engineIP
+        print(self._engine_ip)
         execute_statement_request = e6x_engine_pb2.ExecuteStatementRequest(engineIP=self._engine_ip,
                                                                            sessionId=self.connection.get_session_id,
                                                                            queryId=self._query_id)
