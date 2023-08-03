@@ -173,6 +173,7 @@ class Connection(object):
         if self._channel is not None:
             self._channel.close()
             self._channel = None
+            # TODO: Close client or set to None
 
     def check_connection(self):
         return self._channel is not None
@@ -183,8 +184,9 @@ class Connection(object):
         self._session_id = None
 
     def reopen(self):
-        self._channel.close()
+        self._channel.close()  # TODO: Handle exceptions if already closed.
         self._channel = grpc.insecure_channel('{}:{}'.format(self._host, self._port))
+        # TODO: Close client or set new client
 
     def query_cancel(self, query_id):
         cancel_query_request = e6x_engine_pb2.CancelQueryRequest(sessionId=self.get_session_id, queryId=query_id)
