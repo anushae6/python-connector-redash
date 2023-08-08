@@ -24,6 +24,11 @@ class QueryEngineServiceStub(object):
                 request_serializer=e6x__engine__pb2.CancelQueryRequest.SerializeToString,
                 response_deserializer=e6x__engine__pb2.CancelQueryResponse.FromString,
                 )
+        self.clearOrCancelQuery = channel.unary_unary(
+                '/QueryEngineService/clearOrCancelQuery',
+                request_serializer=e6x__engine__pb2.ClearOrCancelQueryRequest.SerializeToString,
+                response_deserializer=e6x__engine__pb2.ClearOrCancelQueryResponse.FromString,
+                )
         self.explain = channel.unary_unary(
                 '/QueryEngineService/explain',
                 request_serializer=e6x__engine__pb2.ExplainRequest.SerializeToString,
@@ -166,6 +171,12 @@ class QueryEngineServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def cancelQuery(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def clearOrCancelQuery(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -341,6 +352,11 @@ def add_QueryEngineServiceServicer_to_server(servicer, server):
                     request_deserializer=e6x__engine__pb2.CancelQueryRequest.FromString,
                     response_serializer=e6x__engine__pb2.CancelQueryResponse.SerializeToString,
             ),
+            'clearOrCancelQuery': grpc.unary_unary_rpc_method_handler(
+                    servicer.clearOrCancelQuery,
+                    request_deserializer=e6x__engine__pb2.ClearOrCancelQueryRequest.FromString,
+                    response_serializer=e6x__engine__pb2.ClearOrCancelQueryResponse.SerializeToString,
+            ),
             'explain': grpc.unary_unary_rpc_method_handler(
                     servicer.explain,
                     request_deserializer=e6x__engine__pb2.ExplainRequest.FromString,
@@ -512,6 +528,23 @@ class QueryEngineService(object):
         return grpc.experimental.unary_unary(request, target, '/QueryEngineService/cancelQuery',
             e6x__engine__pb2.CancelQueryRequest.SerializeToString,
             e6x__engine__pb2.CancelQueryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def clearOrCancelQuery(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/QueryEngineService/clearOrCancelQuery',
+            e6x__engine__pb2.ClearOrCancelQueryRequest.SerializeToString,
+            e6x__engine__pb2.ClearOrCancelQueryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

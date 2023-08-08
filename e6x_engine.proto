@@ -96,6 +96,7 @@ message PrepareStatementRequest{
   string sessionId = 1;
   string schema = 2;
   string queryString = 3;
+  string quoting = 4;
 }
 
 message PrepareStatementV2Request{
@@ -103,6 +104,7 @@ message PrepareStatementV2Request{
   string schema = 2;
   string queryString = 3;
   string catalog = 4;
+  string quoting = 5;
 }
 message PrepareStatementResponse{
   string engineIP = 1;
@@ -280,10 +282,21 @@ message RemoteChunkResponse{
   bytes chunk = 2;
 }
 
+message ClearOrCancelQueryRequest{
+  string engineIP = 1;
+  string sessionId = 2;
+  string queryId = 3;
+}
+
+message ClearOrCancelQueryResponse{
+}
+
 service QueryEngineService {
   rpc clear(ClearRequest) returns (ClearResponse);
 
   rpc cancelQuery(CancelQueryRequest) returns (CancelQueryResponse);
+
+  rpc clearOrCancelQuery(ClearOrCancelQueryRequest) returns (ClearOrCancelQueryResponse);
 
   rpc explain(ExplainRequest) returns (ExplainResponse);
 

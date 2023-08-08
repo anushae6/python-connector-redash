@@ -142,26 +142,30 @@ class ExplainAnalyzeResponse(_message.Message):
     def __init__(self, explainAnalyze: _Optional[str] = ...) -> None: ...
 
 class PrepareStatementRequest(_message.Message):
-    __slots__ = ["sessionId", "schema", "queryString"]
+    __slots__ = ["sessionId", "schema", "queryString", "quoting"]
     SESSIONID_FIELD_NUMBER: _ClassVar[int]
     SCHEMA_FIELD_NUMBER: _ClassVar[int]
     QUERYSTRING_FIELD_NUMBER: _ClassVar[int]
+    QUOTING_FIELD_NUMBER: _ClassVar[int]
     sessionId: str
     schema: str
     queryString: str
-    def __init__(self, sessionId: _Optional[str] = ..., schema: _Optional[str] = ..., queryString: _Optional[str] = ...) -> None: ...
+    quoting: str
+    def __init__(self, sessionId: _Optional[str] = ..., schema: _Optional[str] = ..., queryString: _Optional[str] = ..., quoting: _Optional[str] = ...) -> None: ...
 
 class PrepareStatementV2Request(_message.Message):
-    __slots__ = ["sessionId", "schema", "queryString", "catalog"]
+    __slots__ = ["sessionId", "schema", "queryString", "catalog", "quoting"]
     SESSIONID_FIELD_NUMBER: _ClassVar[int]
     SCHEMA_FIELD_NUMBER: _ClassVar[int]
     QUERYSTRING_FIELD_NUMBER: _ClassVar[int]
     CATALOG_FIELD_NUMBER: _ClassVar[int]
+    QUOTING_FIELD_NUMBER: _ClassVar[int]
     sessionId: str
     schema: str
     queryString: str
     catalog: str
-    def __init__(self, sessionId: _Optional[str] = ..., schema: _Optional[str] = ..., queryString: _Optional[str] = ..., catalog: _Optional[str] = ...) -> None: ...
+    quoting: str
+    def __init__(self, sessionId: _Optional[str] = ..., schema: _Optional[str] = ..., queryString: _Optional[str] = ..., catalog: _Optional[str] = ..., quoting: _Optional[str] = ...) -> None: ...
 
 class PrepareStatementResponse(_message.Message):
     __slots__ = ["engineIP", "queryId"]
@@ -436,3 +440,17 @@ class RemoteChunkResponse(_message.Message):
     error: str
     chunk: bytes
     def __init__(self, error: _Optional[str] = ..., chunk: _Optional[bytes] = ...) -> None: ...
+
+class ClearOrCancelQueryRequest(_message.Message):
+    __slots__ = ["engineIP", "sessionId", "queryId"]
+    ENGINEIP_FIELD_NUMBER: _ClassVar[int]
+    SESSIONID_FIELD_NUMBER: _ClassVar[int]
+    QUERYID_FIELD_NUMBER: _ClassVar[int]
+    engineIP: str
+    sessionId: str
+    queryId: str
+    def __init__(self, engineIP: _Optional[str] = ..., sessionId: _Optional[str] = ..., queryId: _Optional[str] = ...) -> None: ...
+
+class ClearOrCancelQueryResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
