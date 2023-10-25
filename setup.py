@@ -40,9 +40,10 @@ setuptools.setup(
         'pycryptodome',
         'pytz',
         'thrift',
-        'grpcio>=1.56.2',
-        'grpcio-tools>=1.56.2',
-        'sqlalchemy'
+        'grpcio',
+        'grpcio-tools',
+        'sqlalchemy',
+        'protobuf==3.20.1'
     ],
     classifiers=[
         "Operating System :: POSIX :: Linux",
