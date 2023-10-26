@@ -3,9 +3,9 @@
 # source: e6x_engine.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
-from google.protobuf import descriptor_pool as _descriptor_pool
+from google.protobuf import message as _message
+from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-from google.protobuf.internal import builder as _builder
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -13,129 +13,3008 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x65\x36x_engine.proto\"2\n\nGFieldInfo\x12\x11\n\tfieldName\x18\x01 \x01(\t\x12\x11\n\tfieldType\x18\x02 \x01(\t\"A\n\x13\x46\x61iledSchemaElement\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"P\n\x16GetAddCatalogsResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12&\n\x08\x66\x61ilures\x18\x02 \x03(\x0b\x32\x14.FailedSchemaElement\"2\n\x0f\x43\x61talogResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tisDefault\x18\x02 \x01(\x08\"<\n\x0eParameterValue\x12\r\n\x05index\x18\x01 \x01(\x11\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\"D\n\x0c\x43learRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\x0f\n\rClearResponse\"J\n\x12\x43\x61ncelQueryRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\x15\n\x13\x43\x61ncelQueryResponse\"F\n\x0e\x45xplainRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\"\n\x0f\x45xplainResponse\x12\x0f\n\x07\x65xplain\x18\x01 \x01(\t\"Y\n\rDryRunRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0e\n\x06schema\x18\x03 \x01(\t\x12\x13\n\x0bqueryString\x18\x04 \x01(\t\"%\n\x0e\x44ryRunResponse\x12\x13\n\x0b\x64ryrunValue\x18\x01 \x01(\t\"l\n\x0f\x44ryRunRequestV2\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0e\n\x06schema\x18\x03 \x01(\t\x12\x13\n\x0bqueryString\x18\x04 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x05 \x01(\t\"M\n\x15\x45xplainAnalyzeRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"m\n\x16\x45xplainAnalyzeResponse\x12\x16\n\x0e\x65xplainAnalyze\x18\x01 \x01(\t\x12\x10\n\x08isCached\x18\x02 \x01(\x08\x12\x13\n\x0bparsingTime\x18\x03 \x01(\x12\x12\x14\n\x0cqueueingTime\x18\x04 \x01(\x12\"b\n\x17PrepareStatementRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\x13\n\x0bqueryString\x18\x03 \x01(\t\x12\x0f\n\x07quoting\x18\x04 \x01(\t\"u\n\x19PrepareStatementV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\x13\n\x0bqueryString\x18\x03 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x04 \x01(\t\x12\x0f\n\x07quoting\x18\x05 \x01(\t\"=\n\x18PrepareStatementResponse\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x0f\n\x07queryId\x18\x02 \x01(\t\"@\n\x0eUserAccessInfo\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08userName\x18\x02 \x01(\t\x12\x0e\n\x06tokens\x18\x03 \x03(\t\"O\n\x17\x45xecuteStatementRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"r\n\x19\x45xecuteStatementV2Request\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\x12\x1f\n\x06params\x18\x04 \x03(\x0b\x32\x0f.ParameterValue\"\x1a\n\x18\x45xecuteStatementResponse\"O\n\x17GetNextResultRowRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"-\n\x18GetNextResultRowResponse\x12\x11\n\tresultRow\x18\x02 \x01(\x0c\"Q\n\x19GetNextResultBatchRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"1\n\x1aGetNextResultBatchResponse\x12\x13\n\x0bresultBatch\x18\x02 \x01(\x0c\"P\n\x18GetResultMetadataRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"3\n\x19GetResultMetadataResponse\x12\x16\n\x0eresultMetaData\x18\x01 \x01(\x0c\"5\n\x13\x41uthenticateRequest\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\")\n\x14\x41uthenticateResponse\x12\x11\n\tsessionId\x18\x01 \x01(\t\"5\n\x10GetTablesRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\"H\n\x12GetTablesV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x03 \x01(\t\"#\n\x11GetTablesResponse\x12\x0e\n\x06tables\x18\x01 \x03(\t\"*\n\x15GetSchemaNamesRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\"=\n\x17GetSchemaNamesV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x02 \x01(\t\")\n\x16GetSchemaNamesResponse\x12\x0f\n\x07schemas\x18\x01 \x03(\t\"E\n\x11GetColumnsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\r\n\x05table\x18\x03 \x01(\t\"X\n\x13GetColumnsV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\r\n\x05table\x18\x03 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x04 \x01(\t\"4\n\x12GetColumnsResponse\x12\x1e\n\tfieldInfo\x18\x01 \x03(\x0b\x32\x0b.GFieldInfo\"E\n\rStatusRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"2\n\x0eStatusResponse\x12\x0e\n\x06status\x18\x02 \x01(\x08\x12\x10\n\x08rowCount\x18\x03 \x01(\x12\"5\n\x12\x41\x64\x64\x43\x61talogsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0c\n\x04json\x18\x02 \x01(\t\"#\n\x12UpdateUsersRequest\x12\r\n\x05users\x18\x01 \x01(\x0c\"\x15\n\x13UpdateUsersResponse\"3\n\x0fSetPropsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\r\n\x05props\x18\x02 \x01(\t\"\x12\n\x10SetPropsResponse\"*\n\x15GetAddCatalogsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\"\x15\n\x13\x41\x64\x64\x43\x61talogsResponse\"\x15\n\x13GetCatalogesRequest\"B\n\x14GetCatalogesResponse\x12*\n\x10\x63\x61talogResponses\x18\x01 \x03(\x0b\x32\x10.CatalogResponse\"+\n\x16RefreshCatalogsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\"\x19\n\x17RefreshCatalogsResponse\"X\n\x12RemoteChunkRequest\x12\x17\n\x0foriginalQueryId\x18\x01 \x01(\t\x12\x15\n\rremoteQueryId\x18\x02 \x01(\t\x12\x12\n\nsQueryHash\x18\x03 \x01(\t\"3\n\x13RemoteChunkResponse\x12\r\n\x05\x65rror\x18\x01 \x01(\t\x12\r\n\x05\x63hunk\x18\x02 \x01(\x0c\"Q\n\x19\x43learOrCancelQueryRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\x1c\n\x1a\x43learOrCancelQueryResponse2\xaa\x0e\n\x12QueryEngineService\x12&\n\x05\x63lear\x12\r.ClearRequest\x1a\x0e.ClearResponse\x12\x38\n\x0b\x63\x61ncelQuery\x12\x13.CancelQueryRequest\x1a\x14.CancelQueryResponse\x12M\n\x12\x63learOrCancelQuery\x12\x1a.ClearOrCancelQueryRequest\x1a\x1b.ClearOrCancelQueryResponse\x12,\n\x07\x65xplain\x12\x0f.ExplainRequest\x1a\x10.ExplainResponse\x12)\n\x06\x64ryRun\x12\x0e.DryRunRequest\x1a\x0f.DryRunResponse\x12-\n\x08\x64ryRunV2\x12\x10.DryRunRequestV2\x1a\x0f.DryRunResponse\x12\x41\n\x0e\x65xplainAnalyze\x12\x16.ExplainAnalyzeRequest\x1a\x17.ExplainAnalyzeResponse\x12G\n\x10prepareStatement\x12\x18.PrepareStatementRequest\x1a\x19.PrepareStatementResponse\x12K\n\x12prepareStatementV2\x12\x1a.PrepareStatementV2Request\x1a\x19.PrepareStatementResponse\x12G\n\x10\x65xecuteStatement\x12\x18.ExecuteStatementRequest\x1a\x19.ExecuteStatementResponse\x12K\n\x12\x65xecuteStatementV2\x12\x1a.ExecuteStatementV2Request\x1a\x19.ExecuteStatementResponse\x12G\n\x10getNextResultRow\x12\x18.GetNextResultRowRequest\x1a\x19.GetNextResultRowResponse\x12M\n\x12getNextResultBatch\x12\x1a.GetNextResultBatchRequest\x1a\x1b.GetNextResultBatchResponse\x12J\n\x11getResultMetadata\x12\x19.GetResultMetadataRequest\x1a\x1a.GetResultMetadataResponse\x12;\n\x0c\x61uthenticate\x12\x14.AuthenticateRequest\x1a\x15.AuthenticateResponse\x12\x32\n\tgetTables\x12\x11.GetTablesRequest\x1a\x12.GetTablesResponse\x12\x36\n\x0bgetTablesV2\x12\x13.GetTablesV2Request\x1a\x12.GetTablesResponse\x12\x41\n\x0egetSchemaNames\x12\x16.GetSchemaNamesRequest\x1a\x17.GetSchemaNamesResponse\x12\x45\n\x10getSchemaNamesV2\x12\x18.GetSchemaNamesV2Request\x1a\x17.GetSchemaNamesResponse\x12\x35\n\ngetColumns\x12\x12.GetColumnsRequest\x1a\x13.GetColumnsResponse\x12\x39\n\x0cgetColumnsV2\x12\x14.GetColumnsV2Request\x1a\x13.GetColumnsResponse\x12\x38\n\x0bupdateUsers\x12\x13.UpdateUsersRequest\x1a\x14.UpdateUsersResponse\x12/\n\x08setProps\x12\x10.SetPropsRequest\x1a\x11.SetPropsResponse\x12)\n\x06status\x12\x0e.StatusRequest\x1a\x0f.StatusResponse\x12\x38\n\x0b\x61\x64\x64\x43\x61talogs\x12\x13.AddCatalogsRequest\x1a\x14.AddCatalogsResponse\x12I\n\x16getAddCatalogsResponse\x12\x16.GetAddCatalogsRequest\x1a\x17.GetAddCatalogsResponse\x12;\n\x0cgetCataloges\x12\x14.GetCatalogesRequest\x1a\x15.GetCatalogesResponse\x12\x45\n\x18getNextRemoteCachedChunk\x12\x13.RemoteChunkRequest\x1a\x14.RemoteChunkResponse\x12\x44\n\x0frefreshCatalogs\x12\x17.RefreshCatalogsRequest\x1a\x18.RefreshCatalogsResponseB\x02P\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name='e6x_engine.proto',
+  package='',
+  syntax='proto3',
+  serialized_options=b'P\001',
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n\x10\x65\x36x_engine.proto\"2\n\nGFieldInfo\x12\x11\n\tfieldName\x18\x01 \x01(\t\x12\x11\n\tfieldType\x18\x02 \x01(\t\"A\n\x13\x46\x61iledSchemaElement\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\"P\n\x16GetAddCatalogsResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12&\n\x08\x66\x61ilures\x18\x02 \x03(\x0b\x32\x14.FailedSchemaElement\"2\n\x0f\x43\x61talogResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tisDefault\x18\x02 \x01(\x08\"<\n\x0eParameterValue\x12\r\n\x05index\x18\x01 \x01(\x11\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\"D\n\x0c\x43learRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\x0f\n\rClearResponse\"J\n\x12\x43\x61ncelQueryRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\x15\n\x13\x43\x61ncelQueryResponse\"F\n\x0e\x45xplainRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\"\n\x0f\x45xplainResponse\x12\x0f\n\x07\x65xplain\x18\x01 \x01(\t\"Y\n\rDryRunRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0e\n\x06schema\x18\x03 \x01(\t\x12\x13\n\x0bqueryString\x18\x04 \x01(\t\"%\n\x0e\x44ryRunResponse\x12\x13\n\x0b\x64ryrunValue\x18\x01 \x01(\t\"l\n\x0f\x44ryRunRequestV2\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0e\n\x06schema\x18\x03 \x01(\t\x12\x13\n\x0bqueryString\x18\x04 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x05 \x01(\t\"M\n\x15\x45xplainAnalyzeRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"m\n\x16\x45xplainAnalyzeResponse\x12\x16\n\x0e\x65xplainAnalyze\x18\x01 \x01(\t\x12\x10\n\x08isCached\x18\x02 \x01(\x08\x12\x13\n\x0bparsingTime\x18\x03 \x01(\x12\x12\x14\n\x0cqueueingTime\x18\x04 \x01(\x12\"b\n\x17PrepareStatementRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\x13\n\x0bqueryString\x18\x03 \x01(\t\x12\x0f\n\x07quoting\x18\x04 \x01(\t\"u\n\x19PrepareStatementV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\x13\n\x0bqueryString\x18\x03 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x04 \x01(\t\x12\x0f\n\x07quoting\x18\x05 \x01(\t\"=\n\x18PrepareStatementResponse\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x0f\n\x07queryId\x18\x02 \x01(\t\"@\n\x0eUserAccessInfo\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08userName\x18\x02 \x01(\t\x12\x0e\n\x06tokens\x18\x03 \x03(\t\"O\n\x17\x45xecuteStatementRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"r\n\x19\x45xecuteStatementV2Request\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\x12\x1f\n\x06params\x18\x04 \x03(\x0b\x32\x0f.ParameterValue\"\x1a\n\x18\x45xecuteStatementResponse\"O\n\x17GetNextResultRowRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"-\n\x18GetNextResultRowResponse\x12\x11\n\tresultRow\x18\x02 \x01(\x0c\"Q\n\x19GetNextResultBatchRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"1\n\x1aGetNextResultBatchResponse\x12\x13\n\x0bresultBatch\x18\x02 \x01(\x0c\"P\n\x18GetResultMetadataRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"3\n\x19GetResultMetadataResponse\x12\x16\n\x0eresultMetaData\x18\x01 \x01(\x0c\"5\n\x13\x41uthenticateRequest\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\")\n\x14\x41uthenticateResponse\x12\x11\n\tsessionId\x18\x01 \x01(\t\"5\n\x10GetTablesRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\"H\n\x12GetTablesV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x03 \x01(\t\"#\n\x11GetTablesResponse\x12\x0e\n\x06tables\x18\x01 \x03(\t\"*\n\x15GetSchemaNamesRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\"=\n\x17GetSchemaNamesV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x02 \x01(\t\")\n\x16GetSchemaNamesResponse\x12\x0f\n\x07schemas\x18\x01 \x03(\t\"E\n\x11GetColumnsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\r\n\x05table\x18\x03 \x01(\t\"X\n\x13GetColumnsV2Request\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0e\n\x06schema\x18\x02 \x01(\t\x12\r\n\x05table\x18\x03 \x01(\t\x12\x0f\n\x07\x63\x61talog\x18\x04 \x01(\t\"4\n\x12GetColumnsResponse\x12\x1e\n\tfieldInfo\x18\x01 \x03(\x0b\x32\x0b.GFieldInfo\"E\n\rStatusRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"2\n\x0eStatusResponse\x12\x0e\n\x06status\x18\x02 \x01(\x08\x12\x10\n\x08rowCount\x18\x03 \x01(\x12\"5\n\x12\x41\x64\x64\x43\x61talogsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\x0c\n\x04json\x18\x02 \x01(\t\"#\n\x12UpdateUsersRequest\x12\r\n\x05users\x18\x01 \x01(\x0c\"\x15\n\x13UpdateUsersResponse\"3\n\x0fSetPropsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\x12\r\n\x05props\x18\x02 \x01(\t\"\x12\n\x10SetPropsResponse\"*\n\x15GetAddCatalogsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\"\x15\n\x13\x41\x64\x64\x43\x61talogsResponse\"\x15\n\x13GetCatalogesRequest\"B\n\x14GetCatalogesResponse\x12*\n\x10\x63\x61talogResponses\x18\x01 \x03(\x0b\x32\x10.CatalogResponse\"+\n\x16RefreshCatalogsRequest\x12\x11\n\tsessionId\x18\x01 \x01(\t\"\x19\n\x17RefreshCatalogsResponse\"X\n\x12RemoteChunkRequest\x12\x17\n\x0foriginalQueryId\x18\x01 \x01(\t\x12\x15\n\rremoteQueryId\x18\x02 \x01(\t\x12\x12\n\nsQueryHash\x18\x03 \x01(\t\"3\n\x13RemoteChunkResponse\x12\r\n\x05\x65rror\x18\x01 \x01(\t\x12\r\n\x05\x63hunk\x18\x02 \x01(\x0c\"Q\n\x19\x43learOrCancelQueryRequest\x12\x10\n\x08\x65ngineIP\x18\x01 \x01(\t\x12\x11\n\tsessionId\x18\x02 \x01(\t\x12\x0f\n\x07queryId\x18\x03 \x01(\t\"\x1c\n\x1a\x43learOrCancelQueryResponse2\xaa\x0e\n\x12QueryEngineService\x12&\n\x05\x63lear\x12\r.ClearRequest\x1a\x0e.ClearResponse\x12\x38\n\x0b\x63\x61ncelQuery\x12\x13.CancelQueryRequest\x1a\x14.CancelQueryResponse\x12M\n\x12\x63learOrCancelQuery\x12\x1a.ClearOrCancelQueryRequest\x1a\x1b.ClearOrCancelQueryResponse\x12,\n\x07\x65xplain\x12\x0f.ExplainRequest\x1a\x10.ExplainResponse\x12)\n\x06\x64ryRun\x12\x0e.DryRunRequest\x1a\x0f.DryRunResponse\x12-\n\x08\x64ryRunV2\x12\x10.DryRunRequestV2\x1a\x0f.DryRunResponse\x12\x41\n\x0e\x65xplainAnalyze\x12\x16.ExplainAnalyzeRequest\x1a\x17.ExplainAnalyzeResponse\x12G\n\x10prepareStatement\x12\x18.PrepareStatementRequest\x1a\x19.PrepareStatementResponse\x12K\n\x12prepareStatementV2\x12\x1a.PrepareStatementV2Request\x1a\x19.PrepareStatementResponse\x12G\n\x10\x65xecuteStatement\x12\x18.ExecuteStatementRequest\x1a\x19.ExecuteStatementResponse\x12K\n\x12\x65xecuteStatementV2\x12\x1a.ExecuteStatementV2Request\x1a\x19.ExecuteStatementResponse\x12G\n\x10getNextResultRow\x12\x18.GetNextResultRowRequest\x1a\x19.GetNextResultRowResponse\x12M\n\x12getNextResultBatch\x12\x1a.GetNextResultBatchRequest\x1a\x1b.GetNextResultBatchResponse\x12J\n\x11getResultMetadata\x12\x19.GetResultMetadataRequest\x1a\x1a.GetResultMetadataResponse\x12;\n\x0c\x61uthenticate\x12\x14.AuthenticateRequest\x1a\x15.AuthenticateResponse\x12\x32\n\tgetTables\x12\x11.GetTablesRequest\x1a\x12.GetTablesResponse\x12\x36\n\x0bgetTablesV2\x12\x13.GetTablesV2Request\x1a\x12.GetTablesResponse\x12\x41\n\x0egetSchemaNames\x12\x16.GetSchemaNamesRequest\x1a\x17.GetSchemaNamesResponse\x12\x45\n\x10getSchemaNamesV2\x12\x18.GetSchemaNamesV2Request\x1a\x17.GetSchemaNamesResponse\x12\x35\n\ngetColumns\x12\x12.GetColumnsRequest\x1a\x13.GetColumnsResponse\x12\x39\n\x0cgetColumnsV2\x12\x14.GetColumnsV2Request\x1a\x13.GetColumnsResponse\x12\x38\n\x0bupdateUsers\x12\x13.UpdateUsersRequest\x1a\x14.UpdateUsersResponse\x12/\n\x08setProps\x12\x10.SetPropsRequest\x1a\x11.SetPropsResponse\x12)\n\x06status\x12\x0e.StatusRequest\x1a\x0f.StatusResponse\x12\x38\n\x0b\x61\x64\x64\x43\x61talogs\x12\x13.AddCatalogsRequest\x1a\x14.AddCatalogsResponse\x12I\n\x16getAddCatalogsResponse\x12\x16.GetAddCatalogsRequest\x1a\x17.GetAddCatalogsResponse\x12;\n\x0cgetCataloges\x12\x14.GetCatalogesRequest\x1a\x15.GetCatalogesResponse\x12\x45\n\x18getNextRemoteCachedChunk\x12\x13.RemoteChunkRequest\x1a\x14.RemoteChunkResponse\x12\x44\n\x0frefreshCatalogs\x12\x17.RefreshCatalogsRequest\x1a\x18.RefreshCatalogsResponseB\x02P\x01\x62\x06proto3'
+)
 
-_globals = globals()
-_builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'e6x_engine_pb2', _globals)
-if _descriptor._USE_C_DESCRIPTORS == False:
 
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'P\001'
-  _globals['_GFIELDINFO']._serialized_start=20
-  _globals['_GFIELDINFO']._serialized_end=70
-  _globals['_FAILEDSCHEMAELEMENT']._serialized_start=72
-  _globals['_FAILEDSCHEMAELEMENT']._serialized_end=137
-  _globals['_GETADDCATALOGSRESPONSE']._serialized_start=139
-  _globals['_GETADDCATALOGSRESPONSE']._serialized_end=219
-  _globals['_CATALOGRESPONSE']._serialized_start=221
-  _globals['_CATALOGRESPONSE']._serialized_end=271
-  _globals['_PARAMETERVALUE']._serialized_start=273
-  _globals['_PARAMETERVALUE']._serialized_end=333
-  _globals['_CLEARREQUEST']._serialized_start=335
-  _globals['_CLEARREQUEST']._serialized_end=403
-  _globals['_CLEARRESPONSE']._serialized_start=405
-  _globals['_CLEARRESPONSE']._serialized_end=420
-  _globals['_CANCELQUERYREQUEST']._serialized_start=422
-  _globals['_CANCELQUERYREQUEST']._serialized_end=496
-  _globals['_CANCELQUERYRESPONSE']._serialized_start=498
-  _globals['_CANCELQUERYRESPONSE']._serialized_end=519
-  _globals['_EXPLAINREQUEST']._serialized_start=521
-  _globals['_EXPLAINREQUEST']._serialized_end=591
-  _globals['_EXPLAINRESPONSE']._serialized_start=593
-  _globals['_EXPLAINRESPONSE']._serialized_end=627
-  _globals['_DRYRUNREQUEST']._serialized_start=629
-  _globals['_DRYRUNREQUEST']._serialized_end=718
-  _globals['_DRYRUNRESPONSE']._serialized_start=720
-  _globals['_DRYRUNRESPONSE']._serialized_end=757
-  _globals['_DRYRUNREQUESTV2']._serialized_start=759
-  _globals['_DRYRUNREQUESTV2']._serialized_end=867
-  _globals['_EXPLAINANALYZEREQUEST']._serialized_start=869
-  _globals['_EXPLAINANALYZEREQUEST']._serialized_end=946
-  _globals['_EXPLAINANALYZERESPONSE']._serialized_start=948
-  _globals['_EXPLAINANALYZERESPONSE']._serialized_end=1057
-  _globals['_PREPARESTATEMENTREQUEST']._serialized_start=1059
-  _globals['_PREPARESTATEMENTREQUEST']._serialized_end=1157
-  _globals['_PREPARESTATEMENTV2REQUEST']._serialized_start=1159
-  _globals['_PREPARESTATEMENTV2REQUEST']._serialized_end=1276
-  _globals['_PREPARESTATEMENTRESPONSE']._serialized_start=1278
-  _globals['_PREPARESTATEMENTRESPONSE']._serialized_end=1339
-  _globals['_USERACCESSINFO']._serialized_start=1341
-  _globals['_USERACCESSINFO']._serialized_end=1405
-  _globals['_EXECUTESTATEMENTREQUEST']._serialized_start=1407
-  _globals['_EXECUTESTATEMENTREQUEST']._serialized_end=1486
-  _globals['_EXECUTESTATEMENTV2REQUEST']._serialized_start=1488
-  _globals['_EXECUTESTATEMENTV2REQUEST']._serialized_end=1602
-  _globals['_EXECUTESTATEMENTRESPONSE']._serialized_start=1604
-  _globals['_EXECUTESTATEMENTRESPONSE']._serialized_end=1630
-  _globals['_GETNEXTRESULTROWREQUEST']._serialized_start=1632
-  _globals['_GETNEXTRESULTROWREQUEST']._serialized_end=1711
-  _globals['_GETNEXTRESULTROWRESPONSE']._serialized_start=1713
-  _globals['_GETNEXTRESULTROWRESPONSE']._serialized_end=1758
-  _globals['_GETNEXTRESULTBATCHREQUEST']._serialized_start=1760
-  _globals['_GETNEXTRESULTBATCHREQUEST']._serialized_end=1841
-  _globals['_GETNEXTRESULTBATCHRESPONSE']._serialized_start=1843
-  _globals['_GETNEXTRESULTBATCHRESPONSE']._serialized_end=1892
-  _globals['_GETRESULTMETADATAREQUEST']._serialized_start=1894
-  _globals['_GETRESULTMETADATAREQUEST']._serialized_end=1974
-  _globals['_GETRESULTMETADATARESPONSE']._serialized_start=1976
-  _globals['_GETRESULTMETADATARESPONSE']._serialized_end=2027
-  _globals['_AUTHENTICATEREQUEST']._serialized_start=2029
-  _globals['_AUTHENTICATEREQUEST']._serialized_end=2082
-  _globals['_AUTHENTICATERESPONSE']._serialized_start=2084
-  _globals['_AUTHENTICATERESPONSE']._serialized_end=2125
-  _globals['_GETTABLESREQUEST']._serialized_start=2127
-  _globals['_GETTABLESREQUEST']._serialized_end=2180
-  _globals['_GETTABLESV2REQUEST']._serialized_start=2182
-  _globals['_GETTABLESV2REQUEST']._serialized_end=2254
-  _globals['_GETTABLESRESPONSE']._serialized_start=2256
-  _globals['_GETTABLESRESPONSE']._serialized_end=2291
-  _globals['_GETSCHEMANAMESREQUEST']._serialized_start=2293
-  _globals['_GETSCHEMANAMESREQUEST']._serialized_end=2335
-  _globals['_GETSCHEMANAMESV2REQUEST']._serialized_start=2337
-  _globals['_GETSCHEMANAMESV2REQUEST']._serialized_end=2398
-  _globals['_GETSCHEMANAMESRESPONSE']._serialized_start=2400
-  _globals['_GETSCHEMANAMESRESPONSE']._serialized_end=2441
-  _globals['_GETCOLUMNSREQUEST']._serialized_start=2443
-  _globals['_GETCOLUMNSREQUEST']._serialized_end=2512
-  _globals['_GETCOLUMNSV2REQUEST']._serialized_start=2514
-  _globals['_GETCOLUMNSV2REQUEST']._serialized_end=2602
-  _globals['_GETCOLUMNSRESPONSE']._serialized_start=2604
-  _globals['_GETCOLUMNSRESPONSE']._serialized_end=2656
-  _globals['_STATUSREQUEST']._serialized_start=2658
-  _globals['_STATUSREQUEST']._serialized_end=2727
-  _globals['_STATUSRESPONSE']._serialized_start=2729
-  _globals['_STATUSRESPONSE']._serialized_end=2779
-  _globals['_ADDCATALOGSREQUEST']._serialized_start=2781
-  _globals['_ADDCATALOGSREQUEST']._serialized_end=2834
-  _globals['_UPDATEUSERSREQUEST']._serialized_start=2836
-  _globals['_UPDATEUSERSREQUEST']._serialized_end=2871
-  _globals['_UPDATEUSERSRESPONSE']._serialized_start=2873
-  _globals['_UPDATEUSERSRESPONSE']._serialized_end=2894
-  _globals['_SETPROPSREQUEST']._serialized_start=2896
-  _globals['_SETPROPSREQUEST']._serialized_end=2947
-  _globals['_SETPROPSRESPONSE']._serialized_start=2949
-  _globals['_SETPROPSRESPONSE']._serialized_end=2967
-  _globals['_GETADDCATALOGSREQUEST']._serialized_start=2969
-  _globals['_GETADDCATALOGSREQUEST']._serialized_end=3011
-  _globals['_ADDCATALOGSRESPONSE']._serialized_start=3013
-  _globals['_ADDCATALOGSRESPONSE']._serialized_end=3034
-  _globals['_GETCATALOGESREQUEST']._serialized_start=3036
-  _globals['_GETCATALOGESREQUEST']._serialized_end=3057
-  _globals['_GETCATALOGESRESPONSE']._serialized_start=3059
-  _globals['_GETCATALOGESRESPONSE']._serialized_end=3125
-  _globals['_REFRESHCATALOGSREQUEST']._serialized_start=3127
-  _globals['_REFRESHCATALOGSREQUEST']._serialized_end=3170
-  _globals['_REFRESHCATALOGSRESPONSE']._serialized_start=3172
-  _globals['_REFRESHCATALOGSRESPONSE']._serialized_end=3197
-  _globals['_REMOTECHUNKREQUEST']._serialized_start=3199
-  _globals['_REMOTECHUNKREQUEST']._serialized_end=3287
-  _globals['_REMOTECHUNKRESPONSE']._serialized_start=3289
-  _globals['_REMOTECHUNKRESPONSE']._serialized_end=3340
-  _globals['_CLEARORCANCELQUERYREQUEST']._serialized_start=3342
-  _globals['_CLEARORCANCELQUERYREQUEST']._serialized_end=3423
-  _globals['_CLEARORCANCELQUERYRESPONSE']._serialized_start=3425
-  _globals['_CLEARORCANCELQUERYRESPONSE']._serialized_end=3453
-  _globals['_QUERYENGINESERVICE']._serialized_start=3456
-  _globals['_QUERYENGINESERVICE']._serialized_end=5290
+
+
+_GFIELDINFO = _descriptor.Descriptor(
+  name='GFieldInfo',
+  full_name='GFieldInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='fieldName', full_name='GFieldInfo.fieldName', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fieldType', full_name='GFieldInfo.fieldType', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=20,
+  serialized_end=70,
+)
+
+
+_FAILEDSCHEMAELEMENT = _descriptor.Descriptor(
+  name='FailedSchemaElement',
+  full_name='FailedSchemaElement',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='FailedSchemaElement.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='FailedSchemaElement.type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='FailedSchemaElement.reason', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=72,
+  serialized_end=137,
+)
+
+
+_GETADDCATALOGSRESPONSE = _descriptor.Descriptor(
+  name='GetAddCatalogsResponse',
+  full_name='GetAddCatalogsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='GetAddCatalogsResponse.status', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failures', full_name='GetAddCatalogsResponse.failures', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=139,
+  serialized_end=219,
+)
+
+
+_CATALOGRESPONSE = _descriptor.Descriptor(
+  name='CatalogResponse',
+  full_name='CatalogResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='CatalogResponse.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='isDefault', full_name='CatalogResponse.isDefault', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=221,
+  serialized_end=271,
+)
+
+
+_PARAMETERVALUE = _descriptor.Descriptor(
+  name='ParameterValue',
+  full_name='ParameterValue',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='index', full_name='ParameterValue.index', index=0,
+      number=1, type=17, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='ParameterValue.type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='ParameterValue.value', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=273,
+  serialized_end=333,
+)
+
+
+_CLEARREQUEST = _descriptor.Descriptor(
+  name='ClearRequest',
+  full_name='ClearRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='ClearRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='ClearRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='ClearRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=335,
+  serialized_end=403,
+)
+
+
+_CLEARRESPONSE = _descriptor.Descriptor(
+  name='ClearResponse',
+  full_name='ClearResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=405,
+  serialized_end=420,
+)
+
+
+_CANCELQUERYREQUEST = _descriptor.Descriptor(
+  name='CancelQueryRequest',
+  full_name='CancelQueryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='CancelQueryRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='CancelQueryRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='CancelQueryRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=422,
+  serialized_end=496,
+)
+
+
+_CANCELQUERYRESPONSE = _descriptor.Descriptor(
+  name='CancelQueryResponse',
+  full_name='CancelQueryResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=498,
+  serialized_end=519,
+)
+
+
+_EXPLAINREQUEST = _descriptor.Descriptor(
+  name='ExplainRequest',
+  full_name='ExplainRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='ExplainRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='ExplainRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='ExplainRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=521,
+  serialized_end=591,
+)
+
+
+_EXPLAINRESPONSE = _descriptor.Descriptor(
+  name='ExplainResponse',
+  full_name='ExplainResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='explain', full_name='ExplainResponse.explain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=593,
+  serialized_end=627,
+)
+
+
+_DRYRUNREQUEST = _descriptor.Descriptor(
+  name='DryRunRequest',
+  full_name='DryRunRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='DryRunRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='DryRunRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='DryRunRequest.schema', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryString', full_name='DryRunRequest.queryString', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=629,
+  serialized_end=718,
+)
+
+
+_DRYRUNRESPONSE = _descriptor.Descriptor(
+  name='DryRunResponse',
+  full_name='DryRunResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dryrunValue', full_name='DryRunResponse.dryrunValue', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=720,
+  serialized_end=757,
+)
+
+
+_DRYRUNREQUESTV2 = _descriptor.Descriptor(
+  name='DryRunRequestV2',
+  full_name='DryRunRequestV2',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='DryRunRequestV2.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='DryRunRequestV2.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='DryRunRequestV2.schema', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryString', full_name='DryRunRequestV2.queryString', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='catalog', full_name='DryRunRequestV2.catalog', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=759,
+  serialized_end=867,
+)
+
+
+_EXPLAINANALYZEREQUEST = _descriptor.Descriptor(
+  name='ExplainAnalyzeRequest',
+  full_name='ExplainAnalyzeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='ExplainAnalyzeRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='ExplainAnalyzeRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='ExplainAnalyzeRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=869,
+  serialized_end=946,
+)
+
+
+_EXPLAINANALYZERESPONSE = _descriptor.Descriptor(
+  name='ExplainAnalyzeResponse',
+  full_name='ExplainAnalyzeResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='explainAnalyze', full_name='ExplainAnalyzeResponse.explainAnalyze', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='isCached', full_name='ExplainAnalyzeResponse.isCached', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parsingTime', full_name='ExplainAnalyzeResponse.parsingTime', index=2,
+      number=3, type=18, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queueingTime', full_name='ExplainAnalyzeResponse.queueingTime', index=3,
+      number=4, type=18, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=948,
+  serialized_end=1057,
+)
+
+
+_PREPARESTATEMENTREQUEST = _descriptor.Descriptor(
+  name='PrepareStatementRequest',
+  full_name='PrepareStatementRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='PrepareStatementRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='PrepareStatementRequest.schema', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryString', full_name='PrepareStatementRequest.queryString', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quoting', full_name='PrepareStatementRequest.quoting', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1059,
+  serialized_end=1157,
+)
+
+
+_PREPARESTATEMENTV2REQUEST = _descriptor.Descriptor(
+  name='PrepareStatementV2Request',
+  full_name='PrepareStatementV2Request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='PrepareStatementV2Request.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='PrepareStatementV2Request.schema', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryString', full_name='PrepareStatementV2Request.queryString', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='catalog', full_name='PrepareStatementV2Request.catalog', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quoting', full_name='PrepareStatementV2Request.quoting', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1159,
+  serialized_end=1276,
+)
+
+
+_PREPARESTATEMENTRESPONSE = _descriptor.Descriptor(
+  name='PrepareStatementResponse',
+  full_name='PrepareStatementResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='PrepareStatementResponse.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='PrepareStatementResponse.queryId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1278,
+  serialized_end=1339,
+)
+
+
+_USERACCESSINFO = _descriptor.Descriptor(
+  name='UserAccessInfo',
+  full_name='UserAccessInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='UserAccessInfo.uuid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='userName', full_name='UserAccessInfo.userName', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tokens', full_name='UserAccessInfo.tokens', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1341,
+  serialized_end=1405,
+)
+
+
+_EXECUTESTATEMENTREQUEST = _descriptor.Descriptor(
+  name='ExecuteStatementRequest',
+  full_name='ExecuteStatementRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='ExecuteStatementRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='ExecuteStatementRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='ExecuteStatementRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1407,
+  serialized_end=1486,
+)
+
+
+_EXECUTESTATEMENTV2REQUEST = _descriptor.Descriptor(
+  name='ExecuteStatementV2Request',
+  full_name='ExecuteStatementV2Request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='ExecuteStatementV2Request.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='ExecuteStatementV2Request.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='ExecuteStatementV2Request.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='params', full_name='ExecuteStatementV2Request.params', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1488,
+  serialized_end=1602,
+)
+
+
+_EXECUTESTATEMENTRESPONSE = _descriptor.Descriptor(
+  name='ExecuteStatementResponse',
+  full_name='ExecuteStatementResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1604,
+  serialized_end=1630,
+)
+
+
+_GETNEXTRESULTROWREQUEST = _descriptor.Descriptor(
+  name='GetNextResultRowRequest',
+  full_name='GetNextResultRowRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='GetNextResultRowRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetNextResultRowRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='GetNextResultRowRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1632,
+  serialized_end=1711,
+)
+
+
+_GETNEXTRESULTROWRESPONSE = _descriptor.Descriptor(
+  name='GetNextResultRowResponse',
+  full_name='GetNextResultRowResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resultRow', full_name='GetNextResultRowResponse.resultRow', index=0,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1713,
+  serialized_end=1758,
+)
+
+
+_GETNEXTRESULTBATCHREQUEST = _descriptor.Descriptor(
+  name='GetNextResultBatchRequest',
+  full_name='GetNextResultBatchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='GetNextResultBatchRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetNextResultBatchRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='GetNextResultBatchRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1760,
+  serialized_end=1841,
+)
+
+
+_GETNEXTRESULTBATCHRESPONSE = _descriptor.Descriptor(
+  name='GetNextResultBatchResponse',
+  full_name='GetNextResultBatchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resultBatch', full_name='GetNextResultBatchResponse.resultBatch', index=0,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1843,
+  serialized_end=1892,
+)
+
+
+_GETRESULTMETADATAREQUEST = _descriptor.Descriptor(
+  name='GetResultMetadataRequest',
+  full_name='GetResultMetadataRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='GetResultMetadataRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetResultMetadataRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='GetResultMetadataRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1894,
+  serialized_end=1974,
+)
+
+
+_GETRESULTMETADATARESPONSE = _descriptor.Descriptor(
+  name='GetResultMetadataResponse',
+  full_name='GetResultMetadataResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resultMetaData', full_name='GetResultMetadataResponse.resultMetaData', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1976,
+  serialized_end=2027,
+)
+
+
+_AUTHENTICATEREQUEST = _descriptor.Descriptor(
+  name='AuthenticateRequest',
+  full_name='AuthenticateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user', full_name='AuthenticateRequest.user', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='password', full_name='AuthenticateRequest.password', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2029,
+  serialized_end=2082,
+)
+
+
+_AUTHENTICATERESPONSE = _descriptor.Descriptor(
+  name='AuthenticateResponse',
+  full_name='AuthenticateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='AuthenticateResponse.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2084,
+  serialized_end=2125,
+)
+
+
+_GETTABLESREQUEST = _descriptor.Descriptor(
+  name='GetTablesRequest',
+  full_name='GetTablesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetTablesRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='GetTablesRequest.schema', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2127,
+  serialized_end=2180,
+)
+
+
+_GETTABLESV2REQUEST = _descriptor.Descriptor(
+  name='GetTablesV2Request',
+  full_name='GetTablesV2Request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetTablesV2Request.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='GetTablesV2Request.schema', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='catalog', full_name='GetTablesV2Request.catalog', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2182,
+  serialized_end=2254,
+)
+
+
+_GETTABLESRESPONSE = _descriptor.Descriptor(
+  name='GetTablesResponse',
+  full_name='GetTablesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tables', full_name='GetTablesResponse.tables', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2256,
+  serialized_end=2291,
+)
+
+
+_GETSCHEMANAMESREQUEST = _descriptor.Descriptor(
+  name='GetSchemaNamesRequest',
+  full_name='GetSchemaNamesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetSchemaNamesRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2293,
+  serialized_end=2335,
+)
+
+
+_GETSCHEMANAMESV2REQUEST = _descriptor.Descriptor(
+  name='GetSchemaNamesV2Request',
+  full_name='GetSchemaNamesV2Request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetSchemaNamesV2Request.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='catalog', full_name='GetSchemaNamesV2Request.catalog', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2337,
+  serialized_end=2398,
+)
+
+
+_GETSCHEMANAMESRESPONSE = _descriptor.Descriptor(
+  name='GetSchemaNamesResponse',
+  full_name='GetSchemaNamesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='schemas', full_name='GetSchemaNamesResponse.schemas', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2400,
+  serialized_end=2441,
+)
+
+
+_GETCOLUMNSREQUEST = _descriptor.Descriptor(
+  name='GetColumnsRequest',
+  full_name='GetColumnsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetColumnsRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='GetColumnsRequest.schema', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='table', full_name='GetColumnsRequest.table', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2443,
+  serialized_end=2512,
+)
+
+
+_GETCOLUMNSV2REQUEST = _descriptor.Descriptor(
+  name='GetColumnsV2Request',
+  full_name='GetColumnsV2Request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetColumnsV2Request.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema', full_name='GetColumnsV2Request.schema', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='table', full_name='GetColumnsV2Request.table', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='catalog', full_name='GetColumnsV2Request.catalog', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2514,
+  serialized_end=2602,
+)
+
+
+_GETCOLUMNSRESPONSE = _descriptor.Descriptor(
+  name='GetColumnsResponse',
+  full_name='GetColumnsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='fieldInfo', full_name='GetColumnsResponse.fieldInfo', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2604,
+  serialized_end=2656,
+)
+
+
+_STATUSREQUEST = _descriptor.Descriptor(
+  name='StatusRequest',
+  full_name='StatusRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='StatusRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='StatusRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='StatusRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2658,
+  serialized_end=2727,
+)
+
+
+_STATUSRESPONSE = _descriptor.Descriptor(
+  name='StatusResponse',
+  full_name='StatusResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='StatusResponse.status', index=0,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rowCount', full_name='StatusResponse.rowCount', index=1,
+      number=3, type=18, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2729,
+  serialized_end=2779,
+)
+
+
+_ADDCATALOGSREQUEST = _descriptor.Descriptor(
+  name='AddCatalogsRequest',
+  full_name='AddCatalogsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='AddCatalogsRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='json', full_name='AddCatalogsRequest.json', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2781,
+  serialized_end=2834,
+)
+
+
+_UPDATEUSERSREQUEST = _descriptor.Descriptor(
+  name='UpdateUsersRequest',
+  full_name='UpdateUsersRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='users', full_name='UpdateUsersRequest.users', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2836,
+  serialized_end=2871,
+)
+
+
+_UPDATEUSERSRESPONSE = _descriptor.Descriptor(
+  name='UpdateUsersResponse',
+  full_name='UpdateUsersResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2873,
+  serialized_end=2894,
+)
+
+
+_SETPROPSREQUEST = _descriptor.Descriptor(
+  name='SetPropsRequest',
+  full_name='SetPropsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='SetPropsRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='props', full_name='SetPropsRequest.props', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2896,
+  serialized_end=2947,
+)
+
+
+_SETPROPSRESPONSE = _descriptor.Descriptor(
+  name='SetPropsResponse',
+  full_name='SetPropsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2949,
+  serialized_end=2967,
+)
+
+
+_GETADDCATALOGSREQUEST = _descriptor.Descriptor(
+  name='GetAddCatalogsRequest',
+  full_name='GetAddCatalogsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='GetAddCatalogsRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2969,
+  serialized_end=3011,
+)
+
+
+_ADDCATALOGSRESPONSE = _descriptor.Descriptor(
+  name='AddCatalogsResponse',
+  full_name='AddCatalogsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3013,
+  serialized_end=3034,
+)
+
+
+_GETCATALOGESREQUEST = _descriptor.Descriptor(
+  name='GetCatalogesRequest',
+  full_name='GetCatalogesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3036,
+  serialized_end=3057,
+)
+
+
+_GETCATALOGESRESPONSE = _descriptor.Descriptor(
+  name='GetCatalogesResponse',
+  full_name='GetCatalogesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='catalogResponses', full_name='GetCatalogesResponse.catalogResponses', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3059,
+  serialized_end=3125,
+)
+
+
+_REFRESHCATALOGSREQUEST = _descriptor.Descriptor(
+  name='RefreshCatalogsRequest',
+  full_name='RefreshCatalogsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='RefreshCatalogsRequest.sessionId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3127,
+  serialized_end=3170,
+)
+
+
+_REFRESHCATALOGSRESPONSE = _descriptor.Descriptor(
+  name='RefreshCatalogsResponse',
+  full_name='RefreshCatalogsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3172,
+  serialized_end=3197,
+)
+
+
+_REMOTECHUNKREQUEST = _descriptor.Descriptor(
+  name='RemoteChunkRequest',
+  full_name='RemoteChunkRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='originalQueryId', full_name='RemoteChunkRequest.originalQueryId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='remoteQueryId', full_name='RemoteChunkRequest.remoteQueryId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sQueryHash', full_name='RemoteChunkRequest.sQueryHash', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3199,
+  serialized_end=3287,
+)
+
+
+_REMOTECHUNKRESPONSE = _descriptor.Descriptor(
+  name='RemoteChunkResponse',
+  full_name='RemoteChunkResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='error', full_name='RemoteChunkResponse.error', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='chunk', full_name='RemoteChunkResponse.chunk', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3289,
+  serialized_end=3340,
+)
+
+
+_CLEARORCANCELQUERYREQUEST = _descriptor.Descriptor(
+  name='ClearOrCancelQueryRequest',
+  full_name='ClearOrCancelQueryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='engineIP', full_name='ClearOrCancelQueryRequest.engineIP', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sessionId', full_name='ClearOrCancelQueryRequest.sessionId', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='queryId', full_name='ClearOrCancelQueryRequest.queryId', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3342,
+  serialized_end=3423,
+)
+
+
+_CLEARORCANCELQUERYRESPONSE = _descriptor.Descriptor(
+  name='ClearOrCancelQueryResponse',
+  full_name='ClearOrCancelQueryResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3425,
+  serialized_end=3453,
+)
+
+_GETADDCATALOGSRESPONSE.fields_by_name['failures'].message_type = _FAILEDSCHEMAELEMENT
+_EXECUTESTATEMENTV2REQUEST.fields_by_name['params'].message_type = _PARAMETERVALUE
+_GETCOLUMNSRESPONSE.fields_by_name['fieldInfo'].message_type = _GFIELDINFO
+_GETCATALOGESRESPONSE.fields_by_name['catalogResponses'].message_type = _CATALOGRESPONSE
+DESCRIPTOR.message_types_by_name['GFieldInfo'] = _GFIELDINFO
+DESCRIPTOR.message_types_by_name['FailedSchemaElement'] = _FAILEDSCHEMAELEMENT
+DESCRIPTOR.message_types_by_name['GetAddCatalogsResponse'] = _GETADDCATALOGSRESPONSE
+DESCRIPTOR.message_types_by_name['CatalogResponse'] = _CATALOGRESPONSE
+DESCRIPTOR.message_types_by_name['ParameterValue'] = _PARAMETERVALUE
+DESCRIPTOR.message_types_by_name['ClearRequest'] = _CLEARREQUEST
+DESCRIPTOR.message_types_by_name['ClearResponse'] = _CLEARRESPONSE
+DESCRIPTOR.message_types_by_name['CancelQueryRequest'] = _CANCELQUERYREQUEST
+DESCRIPTOR.message_types_by_name['CancelQueryResponse'] = _CANCELQUERYRESPONSE
+DESCRIPTOR.message_types_by_name['ExplainRequest'] = _EXPLAINREQUEST
+DESCRIPTOR.message_types_by_name['ExplainResponse'] = _EXPLAINRESPONSE
+DESCRIPTOR.message_types_by_name['DryRunRequest'] = _DRYRUNREQUEST
+DESCRIPTOR.message_types_by_name['DryRunResponse'] = _DRYRUNRESPONSE
+DESCRIPTOR.message_types_by_name['DryRunRequestV2'] = _DRYRUNREQUESTV2
+DESCRIPTOR.message_types_by_name['ExplainAnalyzeRequest'] = _EXPLAINANALYZEREQUEST
+DESCRIPTOR.message_types_by_name['ExplainAnalyzeResponse'] = _EXPLAINANALYZERESPONSE
+DESCRIPTOR.message_types_by_name['PrepareStatementRequest'] = _PREPARESTATEMENTREQUEST
+DESCRIPTOR.message_types_by_name['PrepareStatementV2Request'] = _PREPARESTATEMENTV2REQUEST
+DESCRIPTOR.message_types_by_name['PrepareStatementResponse'] = _PREPARESTATEMENTRESPONSE
+DESCRIPTOR.message_types_by_name['UserAccessInfo'] = _USERACCESSINFO
+DESCRIPTOR.message_types_by_name['ExecuteStatementRequest'] = _EXECUTESTATEMENTREQUEST
+DESCRIPTOR.message_types_by_name['ExecuteStatementV2Request'] = _EXECUTESTATEMENTV2REQUEST
+DESCRIPTOR.message_types_by_name['ExecuteStatementResponse'] = _EXECUTESTATEMENTRESPONSE
+DESCRIPTOR.message_types_by_name['GetNextResultRowRequest'] = _GETNEXTRESULTROWREQUEST
+DESCRIPTOR.message_types_by_name['GetNextResultRowResponse'] = _GETNEXTRESULTROWRESPONSE
+DESCRIPTOR.message_types_by_name['GetNextResultBatchRequest'] = _GETNEXTRESULTBATCHREQUEST
+DESCRIPTOR.message_types_by_name['GetNextResultBatchResponse'] = _GETNEXTRESULTBATCHRESPONSE
+DESCRIPTOR.message_types_by_name['GetResultMetadataRequest'] = _GETRESULTMETADATAREQUEST
+DESCRIPTOR.message_types_by_name['GetResultMetadataResponse'] = _GETRESULTMETADATARESPONSE
+DESCRIPTOR.message_types_by_name['AuthenticateRequest'] = _AUTHENTICATEREQUEST
+DESCRIPTOR.message_types_by_name['AuthenticateResponse'] = _AUTHENTICATERESPONSE
+DESCRIPTOR.message_types_by_name['GetTablesRequest'] = _GETTABLESREQUEST
+DESCRIPTOR.message_types_by_name['GetTablesV2Request'] = _GETTABLESV2REQUEST
+DESCRIPTOR.message_types_by_name['GetTablesResponse'] = _GETTABLESRESPONSE
+DESCRIPTOR.message_types_by_name['GetSchemaNamesRequest'] = _GETSCHEMANAMESREQUEST
+DESCRIPTOR.message_types_by_name['GetSchemaNamesV2Request'] = _GETSCHEMANAMESV2REQUEST
+DESCRIPTOR.message_types_by_name['GetSchemaNamesResponse'] = _GETSCHEMANAMESRESPONSE
+DESCRIPTOR.message_types_by_name['GetColumnsRequest'] = _GETCOLUMNSREQUEST
+DESCRIPTOR.message_types_by_name['GetColumnsV2Request'] = _GETCOLUMNSV2REQUEST
+DESCRIPTOR.message_types_by_name['GetColumnsResponse'] = _GETCOLUMNSRESPONSE
+DESCRIPTOR.message_types_by_name['StatusRequest'] = _STATUSREQUEST
+DESCRIPTOR.message_types_by_name['StatusResponse'] = _STATUSRESPONSE
+DESCRIPTOR.message_types_by_name['AddCatalogsRequest'] = _ADDCATALOGSREQUEST
+DESCRIPTOR.message_types_by_name['UpdateUsersRequest'] = _UPDATEUSERSREQUEST
+DESCRIPTOR.message_types_by_name['UpdateUsersResponse'] = _UPDATEUSERSRESPONSE
+DESCRIPTOR.message_types_by_name['SetPropsRequest'] = _SETPROPSREQUEST
+DESCRIPTOR.message_types_by_name['SetPropsResponse'] = _SETPROPSRESPONSE
+DESCRIPTOR.message_types_by_name['GetAddCatalogsRequest'] = _GETADDCATALOGSREQUEST
+DESCRIPTOR.message_types_by_name['AddCatalogsResponse'] = _ADDCATALOGSRESPONSE
+DESCRIPTOR.message_types_by_name['GetCatalogesRequest'] = _GETCATALOGESREQUEST
+DESCRIPTOR.message_types_by_name['GetCatalogesResponse'] = _GETCATALOGESRESPONSE
+DESCRIPTOR.message_types_by_name['RefreshCatalogsRequest'] = _REFRESHCATALOGSREQUEST
+DESCRIPTOR.message_types_by_name['RefreshCatalogsResponse'] = _REFRESHCATALOGSRESPONSE
+DESCRIPTOR.message_types_by_name['RemoteChunkRequest'] = _REMOTECHUNKREQUEST
+DESCRIPTOR.message_types_by_name['RemoteChunkResponse'] = _REMOTECHUNKRESPONSE
+DESCRIPTOR.message_types_by_name['ClearOrCancelQueryRequest'] = _CLEARORCANCELQUERYREQUEST
+DESCRIPTOR.message_types_by_name['ClearOrCancelQueryResponse'] = _CLEARORCANCELQUERYRESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+GFieldInfo = _reflection.GeneratedProtocolMessageType('GFieldInfo', (_message.Message,), {
+  'DESCRIPTOR' : _GFIELDINFO,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GFieldInfo)
+  })
+_sym_db.RegisterMessage(GFieldInfo)
+
+FailedSchemaElement = _reflection.GeneratedProtocolMessageType('FailedSchemaElement', (_message.Message,), {
+  'DESCRIPTOR' : _FAILEDSCHEMAELEMENT,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:FailedSchemaElement)
+  })
+_sym_db.RegisterMessage(FailedSchemaElement)
+
+GetAddCatalogsResponse = _reflection.GeneratedProtocolMessageType('GetAddCatalogsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETADDCATALOGSRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetAddCatalogsResponse)
+  })
+_sym_db.RegisterMessage(GetAddCatalogsResponse)
+
+CatalogResponse = _reflection.GeneratedProtocolMessageType('CatalogResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CATALOGRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:CatalogResponse)
+  })
+_sym_db.RegisterMessage(CatalogResponse)
+
+ParameterValue = _reflection.GeneratedProtocolMessageType('ParameterValue', (_message.Message,), {
+  'DESCRIPTOR' : _PARAMETERVALUE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ParameterValue)
+  })
+_sym_db.RegisterMessage(ParameterValue)
+
+ClearRequest = _reflection.GeneratedProtocolMessageType('ClearRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CLEARREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ClearRequest)
+  })
+_sym_db.RegisterMessage(ClearRequest)
+
+ClearResponse = _reflection.GeneratedProtocolMessageType('ClearResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CLEARRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ClearResponse)
+  })
+_sym_db.RegisterMessage(ClearResponse)
+
+CancelQueryRequest = _reflection.GeneratedProtocolMessageType('CancelQueryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CANCELQUERYREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:CancelQueryRequest)
+  })
+_sym_db.RegisterMessage(CancelQueryRequest)
+
+CancelQueryResponse = _reflection.GeneratedProtocolMessageType('CancelQueryResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CANCELQUERYRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:CancelQueryResponse)
+  })
+_sym_db.RegisterMessage(CancelQueryResponse)
+
+ExplainRequest = _reflection.GeneratedProtocolMessageType('ExplainRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXPLAINREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ExplainRequest)
+  })
+_sym_db.RegisterMessage(ExplainRequest)
+
+ExplainResponse = _reflection.GeneratedProtocolMessageType('ExplainResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EXPLAINRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ExplainResponse)
+  })
+_sym_db.RegisterMessage(ExplainResponse)
+
+DryRunRequest = _reflection.GeneratedProtocolMessageType('DryRunRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DRYRUNREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:DryRunRequest)
+  })
+_sym_db.RegisterMessage(DryRunRequest)
+
+DryRunResponse = _reflection.GeneratedProtocolMessageType('DryRunResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DRYRUNRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:DryRunResponse)
+  })
+_sym_db.RegisterMessage(DryRunResponse)
+
+DryRunRequestV2 = _reflection.GeneratedProtocolMessageType('DryRunRequestV2', (_message.Message,), {
+  'DESCRIPTOR' : _DRYRUNREQUESTV2,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:DryRunRequestV2)
+  })
+_sym_db.RegisterMessage(DryRunRequestV2)
+
+ExplainAnalyzeRequest = _reflection.GeneratedProtocolMessageType('ExplainAnalyzeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXPLAINANALYZEREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ExplainAnalyzeRequest)
+  })
+_sym_db.RegisterMessage(ExplainAnalyzeRequest)
+
+ExplainAnalyzeResponse = _reflection.GeneratedProtocolMessageType('ExplainAnalyzeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EXPLAINANALYZERESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ExplainAnalyzeResponse)
+  })
+_sym_db.RegisterMessage(ExplainAnalyzeResponse)
+
+PrepareStatementRequest = _reflection.GeneratedProtocolMessageType('PrepareStatementRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PREPARESTATEMENTREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:PrepareStatementRequest)
+  })
+_sym_db.RegisterMessage(PrepareStatementRequest)
+
+PrepareStatementV2Request = _reflection.GeneratedProtocolMessageType('PrepareStatementV2Request', (_message.Message,), {
+  'DESCRIPTOR' : _PREPARESTATEMENTV2REQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:PrepareStatementV2Request)
+  })
+_sym_db.RegisterMessage(PrepareStatementV2Request)
+
+PrepareStatementResponse = _reflection.GeneratedProtocolMessageType('PrepareStatementResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PREPARESTATEMENTRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:PrepareStatementResponse)
+  })
+_sym_db.RegisterMessage(PrepareStatementResponse)
+
+UserAccessInfo = _reflection.GeneratedProtocolMessageType('UserAccessInfo', (_message.Message,), {
+  'DESCRIPTOR' : _USERACCESSINFO,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:UserAccessInfo)
+  })
+_sym_db.RegisterMessage(UserAccessInfo)
+
+ExecuteStatementRequest = _reflection.GeneratedProtocolMessageType('ExecuteStatementRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXECUTESTATEMENTREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ExecuteStatementRequest)
+  })
+_sym_db.RegisterMessage(ExecuteStatementRequest)
+
+ExecuteStatementV2Request = _reflection.GeneratedProtocolMessageType('ExecuteStatementV2Request', (_message.Message,), {
+  'DESCRIPTOR' : _EXECUTESTATEMENTV2REQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ExecuteStatementV2Request)
+  })
+_sym_db.RegisterMessage(ExecuteStatementV2Request)
+
+ExecuteStatementResponse = _reflection.GeneratedProtocolMessageType('ExecuteStatementResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EXECUTESTATEMENTRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ExecuteStatementResponse)
+  })
+_sym_db.RegisterMessage(ExecuteStatementResponse)
+
+GetNextResultRowRequest = _reflection.GeneratedProtocolMessageType('GetNextResultRowRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETNEXTRESULTROWREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetNextResultRowRequest)
+  })
+_sym_db.RegisterMessage(GetNextResultRowRequest)
+
+GetNextResultRowResponse = _reflection.GeneratedProtocolMessageType('GetNextResultRowResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETNEXTRESULTROWRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetNextResultRowResponse)
+  })
+_sym_db.RegisterMessage(GetNextResultRowResponse)
+
+GetNextResultBatchRequest = _reflection.GeneratedProtocolMessageType('GetNextResultBatchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETNEXTRESULTBATCHREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetNextResultBatchRequest)
+  })
+_sym_db.RegisterMessage(GetNextResultBatchRequest)
+
+GetNextResultBatchResponse = _reflection.GeneratedProtocolMessageType('GetNextResultBatchResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETNEXTRESULTBATCHRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetNextResultBatchResponse)
+  })
+_sym_db.RegisterMessage(GetNextResultBatchResponse)
+
+GetResultMetadataRequest = _reflection.GeneratedProtocolMessageType('GetResultMetadataRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETRESULTMETADATAREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetResultMetadataRequest)
+  })
+_sym_db.RegisterMessage(GetResultMetadataRequest)
+
+GetResultMetadataResponse = _reflection.GeneratedProtocolMessageType('GetResultMetadataResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETRESULTMETADATARESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetResultMetadataResponse)
+  })
+_sym_db.RegisterMessage(GetResultMetadataResponse)
+
+AuthenticateRequest = _reflection.GeneratedProtocolMessageType('AuthenticateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHENTICATEREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:AuthenticateRequest)
+  })
+_sym_db.RegisterMessage(AuthenticateRequest)
+
+AuthenticateResponse = _reflection.GeneratedProtocolMessageType('AuthenticateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHENTICATERESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:AuthenticateResponse)
+  })
+_sym_db.RegisterMessage(AuthenticateResponse)
+
+GetTablesRequest = _reflection.GeneratedProtocolMessageType('GetTablesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTABLESREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetTablesRequest)
+  })
+_sym_db.RegisterMessage(GetTablesRequest)
+
+GetTablesV2Request = _reflection.GeneratedProtocolMessageType('GetTablesV2Request', (_message.Message,), {
+  'DESCRIPTOR' : _GETTABLESV2REQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetTablesV2Request)
+  })
+_sym_db.RegisterMessage(GetTablesV2Request)
+
+GetTablesResponse = _reflection.GeneratedProtocolMessageType('GetTablesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTABLESRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetTablesResponse)
+  })
+_sym_db.RegisterMessage(GetTablesResponse)
+
+GetSchemaNamesRequest = _reflection.GeneratedProtocolMessageType('GetSchemaNamesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETSCHEMANAMESREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetSchemaNamesRequest)
+  })
+_sym_db.RegisterMessage(GetSchemaNamesRequest)
+
+GetSchemaNamesV2Request = _reflection.GeneratedProtocolMessageType('GetSchemaNamesV2Request', (_message.Message,), {
+  'DESCRIPTOR' : _GETSCHEMANAMESV2REQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetSchemaNamesV2Request)
+  })
+_sym_db.RegisterMessage(GetSchemaNamesV2Request)
+
+GetSchemaNamesResponse = _reflection.GeneratedProtocolMessageType('GetSchemaNamesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETSCHEMANAMESRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetSchemaNamesResponse)
+  })
+_sym_db.RegisterMessage(GetSchemaNamesResponse)
+
+GetColumnsRequest = _reflection.GeneratedProtocolMessageType('GetColumnsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCOLUMNSREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetColumnsRequest)
+  })
+_sym_db.RegisterMessage(GetColumnsRequest)
+
+GetColumnsV2Request = _reflection.GeneratedProtocolMessageType('GetColumnsV2Request', (_message.Message,), {
+  'DESCRIPTOR' : _GETCOLUMNSV2REQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetColumnsV2Request)
+  })
+_sym_db.RegisterMessage(GetColumnsV2Request)
+
+GetColumnsResponse = _reflection.GeneratedProtocolMessageType('GetColumnsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETCOLUMNSRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetColumnsResponse)
+  })
+_sym_db.RegisterMessage(GetColumnsResponse)
+
+StatusRequest = _reflection.GeneratedProtocolMessageType('StatusRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STATUSREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:StatusRequest)
+  })
+_sym_db.RegisterMessage(StatusRequest)
+
+StatusResponse = _reflection.GeneratedProtocolMessageType('StatusResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STATUSRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:StatusResponse)
+  })
+_sym_db.RegisterMessage(StatusResponse)
+
+AddCatalogsRequest = _reflection.GeneratedProtocolMessageType('AddCatalogsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ADDCATALOGSREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:AddCatalogsRequest)
+  })
+_sym_db.RegisterMessage(AddCatalogsRequest)
+
+UpdateUsersRequest = _reflection.GeneratedProtocolMessageType('UpdateUsersRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEUSERSREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:UpdateUsersRequest)
+  })
+_sym_db.RegisterMessage(UpdateUsersRequest)
+
+UpdateUsersResponse = _reflection.GeneratedProtocolMessageType('UpdateUsersResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEUSERSRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:UpdateUsersResponse)
+  })
+_sym_db.RegisterMessage(UpdateUsersResponse)
+
+SetPropsRequest = _reflection.GeneratedProtocolMessageType('SetPropsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SETPROPSREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:SetPropsRequest)
+  })
+_sym_db.RegisterMessage(SetPropsRequest)
+
+SetPropsResponse = _reflection.GeneratedProtocolMessageType('SetPropsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SETPROPSRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:SetPropsResponse)
+  })
+_sym_db.RegisterMessage(SetPropsResponse)
+
+GetAddCatalogsRequest = _reflection.GeneratedProtocolMessageType('GetAddCatalogsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETADDCATALOGSREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetAddCatalogsRequest)
+  })
+_sym_db.RegisterMessage(GetAddCatalogsRequest)
+
+AddCatalogsResponse = _reflection.GeneratedProtocolMessageType('AddCatalogsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ADDCATALOGSRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:AddCatalogsResponse)
+  })
+_sym_db.RegisterMessage(AddCatalogsResponse)
+
+GetCatalogesRequest = _reflection.GeneratedProtocolMessageType('GetCatalogesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCATALOGESREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetCatalogesRequest)
+  })
+_sym_db.RegisterMessage(GetCatalogesRequest)
+
+GetCatalogesResponse = _reflection.GeneratedProtocolMessageType('GetCatalogesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETCATALOGESRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:GetCatalogesResponse)
+  })
+_sym_db.RegisterMessage(GetCatalogesResponse)
+
+RefreshCatalogsRequest = _reflection.GeneratedProtocolMessageType('RefreshCatalogsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REFRESHCATALOGSREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:RefreshCatalogsRequest)
+  })
+_sym_db.RegisterMessage(RefreshCatalogsRequest)
+
+RefreshCatalogsResponse = _reflection.GeneratedProtocolMessageType('RefreshCatalogsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _REFRESHCATALOGSRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:RefreshCatalogsResponse)
+  })
+_sym_db.RegisterMessage(RefreshCatalogsResponse)
+
+RemoteChunkRequest = _reflection.GeneratedProtocolMessageType('RemoteChunkRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REMOTECHUNKREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:RemoteChunkRequest)
+  })
+_sym_db.RegisterMessage(RemoteChunkRequest)
+
+RemoteChunkResponse = _reflection.GeneratedProtocolMessageType('RemoteChunkResponse', (_message.Message,), {
+  'DESCRIPTOR' : _REMOTECHUNKRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:RemoteChunkResponse)
+  })
+_sym_db.RegisterMessage(RemoteChunkResponse)
+
+ClearOrCancelQueryRequest = _reflection.GeneratedProtocolMessageType('ClearOrCancelQueryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CLEARORCANCELQUERYREQUEST,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ClearOrCancelQueryRequest)
+  })
+_sym_db.RegisterMessage(ClearOrCancelQueryRequest)
+
+ClearOrCancelQueryResponse = _reflection.GeneratedProtocolMessageType('ClearOrCancelQueryResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CLEARORCANCELQUERYRESPONSE,
+  '__module__' : 'e6x_engine_pb2'
+  # @@protoc_insertion_point(class_scope:ClearOrCancelQueryResponse)
+  })
+_sym_db.RegisterMessage(ClearOrCancelQueryResponse)
+
+
+DESCRIPTOR._options = None
+
+_QUERYENGINESERVICE = _descriptor.ServiceDescriptor(
+  name='QueryEngineService',
+  full_name='QueryEngineService',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=3456,
+  serialized_end=5290,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='clear',
+    full_name='QueryEngineService.clear',
+    index=0,
+    containing_service=None,
+    input_type=_CLEARREQUEST,
+    output_type=_CLEARRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='cancelQuery',
+    full_name='QueryEngineService.cancelQuery',
+    index=1,
+    containing_service=None,
+    input_type=_CANCELQUERYREQUEST,
+    output_type=_CANCELQUERYRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='clearOrCancelQuery',
+    full_name='QueryEngineService.clearOrCancelQuery',
+    index=2,
+    containing_service=None,
+    input_type=_CLEARORCANCELQUERYREQUEST,
+    output_type=_CLEARORCANCELQUERYRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='explain',
+    full_name='QueryEngineService.explain',
+    index=3,
+    containing_service=None,
+    input_type=_EXPLAINREQUEST,
+    output_type=_EXPLAINRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='dryRun',
+    full_name='QueryEngineService.dryRun',
+    index=4,
+    containing_service=None,
+    input_type=_DRYRUNREQUEST,
+    output_type=_DRYRUNRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='dryRunV2',
+    full_name='QueryEngineService.dryRunV2',
+    index=5,
+    containing_service=None,
+    input_type=_DRYRUNREQUESTV2,
+    output_type=_DRYRUNRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='explainAnalyze',
+    full_name='QueryEngineService.explainAnalyze',
+    index=6,
+    containing_service=None,
+    input_type=_EXPLAINANALYZEREQUEST,
+    output_type=_EXPLAINANALYZERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='prepareStatement',
+    full_name='QueryEngineService.prepareStatement',
+    index=7,
+    containing_service=None,
+    input_type=_PREPARESTATEMENTREQUEST,
+    output_type=_PREPARESTATEMENTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='prepareStatementV2',
+    full_name='QueryEngineService.prepareStatementV2',
+    index=8,
+    containing_service=None,
+    input_type=_PREPARESTATEMENTV2REQUEST,
+    output_type=_PREPARESTATEMENTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='executeStatement',
+    full_name='QueryEngineService.executeStatement',
+    index=9,
+    containing_service=None,
+    input_type=_EXECUTESTATEMENTREQUEST,
+    output_type=_EXECUTESTATEMENTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='executeStatementV2',
+    full_name='QueryEngineService.executeStatementV2',
+    index=10,
+    containing_service=None,
+    input_type=_EXECUTESTATEMENTV2REQUEST,
+    output_type=_EXECUTESTATEMENTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getNextResultRow',
+    full_name='QueryEngineService.getNextResultRow',
+    index=11,
+    containing_service=None,
+    input_type=_GETNEXTRESULTROWREQUEST,
+    output_type=_GETNEXTRESULTROWRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getNextResultBatch',
+    full_name='QueryEngineService.getNextResultBatch',
+    index=12,
+    containing_service=None,
+    input_type=_GETNEXTRESULTBATCHREQUEST,
+    output_type=_GETNEXTRESULTBATCHRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getResultMetadata',
+    full_name='QueryEngineService.getResultMetadata',
+    index=13,
+    containing_service=None,
+    input_type=_GETRESULTMETADATAREQUEST,
+    output_type=_GETRESULTMETADATARESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='authenticate',
+    full_name='QueryEngineService.authenticate',
+    index=14,
+    containing_service=None,
+    input_type=_AUTHENTICATEREQUEST,
+    output_type=_AUTHENTICATERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getTables',
+    full_name='QueryEngineService.getTables',
+    index=15,
+    containing_service=None,
+    input_type=_GETTABLESREQUEST,
+    output_type=_GETTABLESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getTablesV2',
+    full_name='QueryEngineService.getTablesV2',
+    index=16,
+    containing_service=None,
+    input_type=_GETTABLESV2REQUEST,
+    output_type=_GETTABLESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getSchemaNames',
+    full_name='QueryEngineService.getSchemaNames',
+    index=17,
+    containing_service=None,
+    input_type=_GETSCHEMANAMESREQUEST,
+    output_type=_GETSCHEMANAMESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getSchemaNamesV2',
+    full_name='QueryEngineService.getSchemaNamesV2',
+    index=18,
+    containing_service=None,
+    input_type=_GETSCHEMANAMESV2REQUEST,
+    output_type=_GETSCHEMANAMESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getColumns',
+    full_name='QueryEngineService.getColumns',
+    index=19,
+    containing_service=None,
+    input_type=_GETCOLUMNSREQUEST,
+    output_type=_GETCOLUMNSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getColumnsV2',
+    full_name='QueryEngineService.getColumnsV2',
+    index=20,
+    containing_service=None,
+    input_type=_GETCOLUMNSV2REQUEST,
+    output_type=_GETCOLUMNSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='updateUsers',
+    full_name='QueryEngineService.updateUsers',
+    index=21,
+    containing_service=None,
+    input_type=_UPDATEUSERSREQUEST,
+    output_type=_UPDATEUSERSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='setProps',
+    full_name='QueryEngineService.setProps',
+    index=22,
+    containing_service=None,
+    input_type=_SETPROPSREQUEST,
+    output_type=_SETPROPSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='status',
+    full_name='QueryEngineService.status',
+    index=23,
+    containing_service=None,
+    input_type=_STATUSREQUEST,
+    output_type=_STATUSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='addCatalogs',
+    full_name='QueryEngineService.addCatalogs',
+    index=24,
+    containing_service=None,
+    input_type=_ADDCATALOGSREQUEST,
+    output_type=_ADDCATALOGSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getAddCatalogsResponse',
+    full_name='QueryEngineService.getAddCatalogsResponse',
+    index=25,
+    containing_service=None,
+    input_type=_GETADDCATALOGSREQUEST,
+    output_type=_GETADDCATALOGSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getCataloges',
+    full_name='QueryEngineService.getCataloges',
+    index=26,
+    containing_service=None,
+    input_type=_GETCATALOGESREQUEST,
+    output_type=_GETCATALOGESRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getNextRemoteCachedChunk',
+    full_name='QueryEngineService.getNextRemoteCachedChunk',
+    index=27,
+    containing_service=None,
+    input_type=_REMOTECHUNKREQUEST,
+    output_type=_REMOTECHUNKRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='refreshCatalogs',
+    full_name='QueryEngineService.refreshCatalogs',
+    index=28,
+    containing_service=None,
+    input_type=_REFRESHCATALOGSREQUEST,
+    output_type=_REFRESHCATALOGSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_QUERYENGINESERVICE)
+
+DESCRIPTOR.services_by_name['QueryEngineService'] = _QUERYENGINESERVICE
+
 # @@protoc_insertion_point(module_scope)
