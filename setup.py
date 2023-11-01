@@ -43,7 +43,7 @@ setuptools.setup(
         'grpcio',
         'grpcio-tools',
         'sqlalchemy',
-        'protobuf=3.20.2'
+        'protobuf=3.20.2',
     ],
     classifiers=[
         "Operating System :: POSIX :: Linux",
