@@ -12,7 +12,7 @@
 
 import setuptools
 
-VERSION = [1, 3, 4]
+VERSION = [1, 3, 2]
 
 
 def get_long_desc():
@@ -42,7 +42,8 @@ setuptools.setup(
         'thrift',
         'grpcio',
         'grpcio-tools,
-        'sqlalchemy'
+        'sqlalchemy',
+        'protobuf==3.20.2'
     ],
     classifiers=[
         "Operating System :: POSIX :: Linux",
