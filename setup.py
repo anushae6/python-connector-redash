@@ -12,7 +12,7 @@
 
 import setuptools
 
-VERSION = [1, 3, 3]
+VERSION = [1, 3, 4]
 
 
 def get_long_desc():
@@ -40,9 +40,9 @@ setuptools.setup(
         'pycryptodome',
         'pytz',
         'thrift',
-        'grpcio',
-        'grpcio-tools',
-        'sqlalchemy',
+        'grpcio>=1.56.2',
+        'grpcio-tools>=1.56.2',
+        'sqlalchemy'
     ],
     classifiers=[
         "Operating System :: POSIX :: Linux",
