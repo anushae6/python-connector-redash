@@ -12,7 +12,7 @@
 
 import setuptools
 
-VERSION = [1, 3, 4]
+VERSION = [1, 3, 5]
 
 
 def get_long_desc():
@@ -33,17 +33,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     license="Apache 2.0",
     include_package_data=True,
-    install_requires=[
-        'sqlalchemy>=1.0.0',
-        'future',
-        'python-dateutil',
-        'pycryptodome',
-        'pytz',
-        'thrift',
-        'grpcio>=1.56.2',
-        'grpcio-tools>=1.56.2',
-        'sqlalchemy'
-    ],
+
     classifiers=[
         "Operating System :: POSIX :: Linux",
         "License :: OSI Approved :: Apache Software License",
